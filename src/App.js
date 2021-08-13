@@ -5,8 +5,8 @@ import { point } from './drawables/point';
 import './style.css';
 
 const iniState = 
-    new Array(10000).fill(0).map( (v,i,a) =>
-    point({x:i/1000+10, y:i/1000+20}),
+    new Array(1000).fill(0).map( (v,i,a) =>
+    point({x:Math.random()*100+10, y:Math.random()*100+20}),
   )
 
 export default function App() {
