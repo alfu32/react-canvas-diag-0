@@ -10,6 +10,7 @@ export default function App() {
   ]);
   const addDrawable = (ev,synth) => {
     console.log({ev,synth});
+    setDrawables([...drawables,point(synth.point)]);
   };
   return (
     <Layout>
