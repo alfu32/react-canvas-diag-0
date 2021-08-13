@@ -6,7 +6,7 @@ import './style.css';
 export default function App() {
   return (
     <Layout>
-      <div>Canvas</div>
+      <div>Canvas App</div>
       <Canvas />
     </Layout>
   );
