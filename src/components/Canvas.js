@@ -3,7 +3,7 @@ import {useRef} from 'react';
 
 export const Canvas = props => {
   const refCanvas = useRef(null);
-  console.log(refCanvas);
+  console.log({refCanvas});
   return (
     <>
       <div>canvas</div>
