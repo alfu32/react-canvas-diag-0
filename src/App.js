@@ -9,7 +9,7 @@ export default function App() {
     point({x:10, y:10}),
   ]);
   const addDrawable = (ev,synth) => {
-    console.log();
+    console.log({ev,synth});
   };
   return (
     <Layout>
