@@ -1,9 +1,14 @@
 import React from 'react';
-import {useRef} from 'react';
+import {useRef,useEffect} from 'react';
 
 export const Canvas = props => {
   const refCanvas = useRef(null);
-  console.log({refCanvas});
+  useEffect(()=>{
+    const canvas = refCanvas.current;
+    const ctx = canvas.getContext('2d');
+    console.log({canvas,ctx});
+  });
+  
   return (
     <>
       <div>canvas</div>
