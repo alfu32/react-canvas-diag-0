@@ -3,8 +3,8 @@ import React from 'react';
 export const Layout = props => {
   return (
     <div className="app-layout">
-      <div className="app-toolbar" />
-      <div className="app-content" />
+      <div className="app-toolbar">{props.children[0]}</div>
+      <div className="app-content">{props.children[1]}</div>
       <div className="app-statusbar" />
     </div>
   );
