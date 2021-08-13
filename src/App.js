@@ -8,6 +8,7 @@ export default function App() {
     <Layout>
       <div>Canvas App</div>
       <Canvas />
+      <div>status bar</div>
     </Layout>
   );
 }
