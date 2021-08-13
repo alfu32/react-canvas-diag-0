@@ -12,14 +12,22 @@ export const Canvas = props => {
     console.log({canvas,ctx});
     //ctx.strokeRect(10,10,100,100);
     dwg.forEach((d)=>{
-      ctx[d.cmd].apply(canvas,d.args)
+      switch(d.cmd){
+        case 'strokeRect':
+          ctx.strokeRect(...d.args);
+        break;
+        case 'fillText':
+          ctx.fillText(...d.args);
+        break;
+      }
     });
   });
   
   return (
     <>
       <div>canvas</div>
-      <canvas ref={refCanvas} />
+      <canvas ref={refCanvas} 
+        onClick={(props.onClick||(()=>{}))}/>
       <pre></pre>
     </>
   );
