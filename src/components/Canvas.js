@@ -1,5 +1,5 @@
 import React from 'react';
-import { useRef, useEffect } from 'react';
+import { useRef, useState, useEffect } from 'react';
 
 const getPoints = ({canvas,point}) => {
   const rect = canvas.getBoundingClientRect();
@@ -12,6 +12,7 @@ export const Canvas = props => {
   const refCanvas = useRef(null);
   const dwg = props.drawables || [];
   useEffect(() => {
+    (props.onRenderStart||(()=>{}))()
     const canvas = refCanvas.current;
     const ctx = canvas.getContext('2d');
     console.log({ canvas, ctx });
@@ -21,6 +22,7 @@ export const Canvas = props => {
     });
     ctx.stroke();
     ctx.fill();
+    (props.onRenderEnd||(()=>{}))()
   });
   const dispatchEvent = (id,react) => {
     console.log(id,react);
