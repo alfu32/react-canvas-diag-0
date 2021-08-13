@@ -7,6 +7,7 @@ export const Canvas = props => {
     const canvas = refCanvas.current;
     const ctx = canvas.getContext('2d');
     console.log({canvas,ctx});
+    ctx.strokeRect(10,10,100,100)
   });
   
   return (
