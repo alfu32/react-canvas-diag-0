@@ -10,12 +10,15 @@ export default function App() {
   ]);
   const addDrawable = (ev,synth) => {
     console.log({ev,synth});
-    setDrawables([...drawables,point(synth.point)]);
+    setDrawables([...drawables,point(synth.model)]);
   };
   return (
     <Layout>
       <div>Canvas App</div>
-      <Canvas drawables={drawables} onClick={addDrawable} />
+      <Canvas
+        drawables={drawables}
+        onClick={addDrawable}
+      />
       <div>status bar</div>
     </Layout>
   );
