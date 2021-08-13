@@ -29,7 +29,7 @@ export default function App() {
         } }
         onClick={addDrawable}
       />
-      <pre>{JSON.stringify(metrics,null," ")}</pre>
+      <pre>{JSON.stringify(metrics,null,"")}</pre>
     </Layout>
   );
 }
