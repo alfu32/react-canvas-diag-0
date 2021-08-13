@@ -1,34 +1,32 @@
 import React from 'react';
-import {useRef,useEffect} from 'react';
+import { useRef, useEffect } from 'react';
 
 export const Canvas = props => {
   const refCanvas = useRef(null);
-  const dwg=props.drawables||[
-    {cmd:'strokeRect',args:[10,10,100,100]},
-  ];
-  useEffect(()=>{
+  const dwg = props.drawables || [];
+  useEffect(() => {
     const canvas = refCanvas.current;
     const ctx = canvas.getContext('2d');
-    console.log({canvas,ctx});
+    console.log({ canvas, ctx });
     //ctx.strokeRect(10,10,100,100);
-    dwg.forEach((d)=>{
-      switch(d.cmd){
-        case 'strokeRect':
-          ctx.strokeRect(...d.args);
-        break;
-        case 'fillText':
-          ctx.fillText(...d.args);
-        break;
-      }
+    dwg.forEach(d => {
+      d(ctx);
     });
+    ctx.stroke();
+    ctx.fill();
   });
-  
+  const dispatchEvent = (id,react) => {
+    if(props[id]) {
+      props[id](react,{point:{x:react.clientX,y:react.clientY}})
+    }
+  }
   return (
     <>
       <div>canvas</div>
-      <canvas ref={refCanvas} 
-        onClick={(props.onClick||(()=>{}))}/>
-      <pre></pre>
+      <canvas
+        ref={refCanvas}
+        onClick={(e) => dispatchEvent("onClick",e)} />
+      <pre />
     </>
   );
 };

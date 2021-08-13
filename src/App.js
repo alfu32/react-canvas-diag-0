@@ -1,22 +1,20 @@
-import React,{useState} from 'react';
+import React, { useState } from 'react';
 import { Layout } from './components/Layout';
 import { Canvas } from './components/Canvas';
+import { point } from './drawables/point';
 import './style.css';
 
 export default function App() {
-  const [drawables,setDrawables] = useState([
-    {cmd:'strokeRect',args:[10,10,100,100]},
+  const [drawables, setDrawables] = useState([
+    point({x:10, y:10}),
   ]);
-  const addDrawable = (e) => {
-    console.log(e);
-  }
+  const addDrawable = (ev,synth) => {
+    console.log();
+  };
   return (
     <Layout>
       <div>Canvas App</div>
-      <Canvas
-        drawables={drawables}
-        onClick={addDrawable}
-      />
+      <Canvas drawables={drawables} onClick={addDrawable} />
       <div>status bar</div>
     </Layout>
   );
