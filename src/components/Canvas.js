@@ -16,12 +16,13 @@ export const Canvas = props => {
     const canvas = refCanvas.current;
     const ctx = canvas.getContext('2d');
     console.log({ canvas, ctx });
+    ctx.clearRect(0,0,props.width,props.height);
     //ctx.strokeRect(10,10,100,100);
     dwg.forEach(d => {
       d(ctx);
     });
     ctx.stroke();
-    ctx.fill();
+    //ctx.fill();
     (props.onRenderEnd||(()=>{}))()
   });
   const dispatchEvent = (id,react) => {

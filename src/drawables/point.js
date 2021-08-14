@@ -6,5 +6,6 @@ export const point = json => {
     ctx.lineTo(json.x + 5, json.y + 5);
     ctx.lineTo(json.x - 5, json.y + 5);
     ctx.lineTo(json.x - 5, json.y - 5);
+    ctx.stroke();
   };
 };

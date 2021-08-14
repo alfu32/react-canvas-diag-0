@@ -2,10 +2,11 @@ import React, { useState,useLayoutEffect } from 'react';
 import { Layout } from './components/Layout';
 import { Canvas } from './components/Canvas';
 import { point } from './drawables/point';
+import { rectangle } from './drawables/rectangle';
 import './style.css';
 
 const iniState = 
-    new Array(1000).fill(0).map( (v,i,a) =>
+    new Array(1).fill(0).map( (v,i,a) =>
     point({x:Math.random()*100+10, y:Math.random()*100+20}),
   )
 function useWindowSize() {
@@ -23,7 +24,11 @@ function useWindowSize() {
 export default function App() {
   const [drawables, setDrawables] = useState(iniState);
   const [metrics,setMetrics] = useState({count:drawables.length,avg:1});
-  const [width, height] = useWindowSize();
+  let [width, height] = useWindowSize();
+  width-=10;height-=80;
+  const extras = [
+    rectangle({x:0,y:0,width,height})
+  ];
   const addDrawable = (ev,synth) => {
     console.log({ev,synth});
     setDrawables([...drawables,point(synth.model)]);
@@ -34,8 +39,8 @@ export default function App() {
       <div>Canvas App</div>
       <Canvas
         width={width}
-        height={height-80}
-        drawables={drawables}
+        height={height}
+        drawables={[...drawables,...extras]}
         onRenderEnd={() => {
           metrics.b = (new Date()).getTime();
           metrics.delta = metrics.b - metrics.a;
