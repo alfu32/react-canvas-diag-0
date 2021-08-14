@@ -35,6 +35,7 @@ export default function App() {
     setMetrics({...metrics,a:(new Date()).getTime(),count:metrics.count + 1})
   };
   return (
+    <>
     <Layout>
       <div>Canvas App</div>
       <Canvas
@@ -49,6 +50,8 @@ export default function App() {
         onClick={addDrawable}
       />
       <pre>{JSON.stringify(metrics,null,"")}</pre>
+      
     </Layout>
+    </>
   );
 }
