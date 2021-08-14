@@ -33,8 +33,9 @@ export const Canvas = props => {
   }
   return (
     <>
-      <div>canvas</div>
       <canvas
+        width={props.width}
+        height={props.height}
         ref={refCanvas}
         onClick={(e) => dispatchEvent("onClick",e)} />
       <pre />
