@@ -40,7 +40,7 @@ export default function App() {
   return (
     <>
     <Layout>
-      <Toolbar><div>Canvas App</div></Toolbar>
+      <Toolbar>Canvas App</Toolbar>
       <ActivityBar></ActivityBar>
       <Canvas
         width={width}
