@@ -28,7 +28,7 @@ export default function App() {
   const [drawables, setDrawables] = useState(iniState);
   const [metrics,setMetrics] = useState({count:drawables.length,avg:1});
   let [width, height] = useWindowSize();
-  width-=10;height-=80;
+  width-=84;height-=168;
   const extras = [
     rectangle({x:0,y:0,width,height})
   ];

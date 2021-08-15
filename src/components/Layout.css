@@ -1,0 +1,35 @@
+.app-layout{
+  position:relative;
+}
+.app-toolbar{
+  position:absolute;
+  top:10px;
+  left:10px;
+  right:10px;
+  max-height:64px;
+  border:1px solid #aaa;
+}
+.app-activitybar{
+  position:absolute;
+  top:84px;
+  left:10px;
+  bottom:10px;
+  max-width:64px;
+  border:1px solid #ccc;
+}
+.app-content{
+  position:absolute;
+  top:84px;
+  left:84px;
+  bottom:84px;
+  right:10px;
+  border:1px solid #faa;
+}
+.app-statusbar{
+  position:absolute;
+  left:84px;
+  right:10px;
+  bottom:10px;
+  max-height:64px;
+  border:1px solid #afa;
+}
