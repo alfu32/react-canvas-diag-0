@@ -1,5 +1,5 @@
 import React from 'react';
 
 export const ActivityBar = (props) => {
-  return <>{props.children}</>
+  return <div>ACTIVITIES : {props.children}</div>
 }

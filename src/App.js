@@ -1,6 +1,7 @@
 import React, { useState,useLayoutEffect } from 'react';
 import { Layout } from './components/Layout';
 import { Canvas } from './components/Canvas';
+import { StatusBar } from './components/StatusBar';
 import { point } from './drawables/point';
 import { rectangle } from './drawables/rectangle';
 import './style.css';
@@ -49,7 +50,7 @@ export default function App() {
         } }
         onClick={addDrawable}
       />
-      <pre>{JSON.stringify(metrics,null,"")}</pre>
+      <StatusBar><pre>{JSON.stringify(metrics,null,"")}</pre></StatusBar>
       
     </Layout>
     </>
