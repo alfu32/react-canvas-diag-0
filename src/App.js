@@ -1,5 +1,7 @@
 import React, { useState,useLayoutEffect } from 'react';
 import { Layout } from './components/Layout';
+import { ActivityBar} from './components/ActivityBar';
+import { Toolbar } from './components/Toolbar';
 import { Canvas } from './components/Canvas';
 import { StatusBar } from './components/StatusBar';
 import { point } from './drawables/point';
@@ -38,7 +40,8 @@ export default function App() {
   return (
     <>
     <Layout>
-      <div>Canvas App</div>
+      <Toolbar><div>Canvas App</div></Toolbar>
+      <ActivityBar></ActivityBar>
       <Canvas
         width={width}
         height={height}
