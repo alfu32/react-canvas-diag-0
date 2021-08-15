@@ -1,8 +1,9 @@
 import React from 'react';
 import './Layout.css';
 
-export const Layout = props => {
-  const {width,height,children} = props;
+export const Layout = ({width,height,children,margin,thickness}) => {
+  const u=margin||10;
+  const w=thickness||64;
   const toolbar = children[0];
   const content = children[2];
   const status = children[3];
@@ -12,23 +13,35 @@ export const Layout = props => {
     height:`${height}px`
   }
   const stlToolbar={
-    top:'10px',
-    left:'10px',
-    width:`${width-20}px`,
-    height:'64px',
+    top:`${u}px`,
+    left:`${w+2*u}px`,
+    width:`${width-2*u-w}px`,
+    height:`${w}px`,
   }
   const stlActivityBar = {
-    top:'84px',
-    left:'10px',
-    height:`${height-94}px`,
-    width:'64px',
+    top:`${u}px`,
+    left:`${u}px`,
+    height:`${height-2*u}px`,
+    width:`${w}px`,
+  }
+  const stlContent = {
+    top:`${w+2*u}px`,
+    left:`${w+2*u}px`,
+    height:`${height-2*w-4*u}px`,
+    width:`${width-w-2*u}px`,
+  }
+  const stlStatusBar = {
+    top:`${height-w-u}px`,
+    left:`${w+2*u}px`,
+    width:`${width-2*u-w}px`,
+    height:`${w}px`,
   }
   return (
     <div className="app-layout" style={stlLayout}>
       <div className="app-toolbar" style={stlToolbar}>{toolbar}</div>
       <div className="app-activitybar" style={stlActivityBar}>{activitybar}</div>
-      <div className="app-content">{content}</div>
-      <div className="app-statusbar">{status}</div>
+      <div className="app-content" style={stlContent}>{content}</div>
+      <div className="app-statusbar" style={stlStatusBar}>{status}</div>
     </div>
   );
 };
