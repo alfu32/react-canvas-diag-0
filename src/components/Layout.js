@@ -15,26 +15,26 @@ export const Layout = ({width,height,children,margin,thickness}) => {
   const stlToolbar={
     top:`${u}px`,
     left:`${w+2*u}px`,
-    width:`${width-2*u-w}px`,
+    width:`${width-3*u-w}px`,
     height:`${w}px`,
   }
   const stlActivityBar = {
     top:`${u}px`,
     left:`${u}px`,
-    height:`${height-2*u}px`,
     width:`${w}px`,
+    height:`${height-2*u}px`,
   }
   const stlContent = {
     top:`${w+2*u}px`,
     left:`${w+2*u}px`,
+    width:`${width-w-3*u}px`,
     height:`${height-2*w-4*u}px`,
-    width:`${width-w-2*u}px`,
   }
   const stlStatusBar = {
     top:`${height-w-u}px`,
     left:`${w+2*u}px`,
-    width:`${width-2*u-w}px`,
     height:`${w}px`,
+    width:`${width-2*u-w}px`,
   }
   return (
     <div className="app-layout" style={stlLayout}>
