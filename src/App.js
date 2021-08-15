@@ -39,7 +39,8 @@ export default function App() {
   };
   return (
     <>
-    <Layout width={width} height={height}>
+    <Layout width={width} height={height}
+      margin='5'>
       <Toolbar>Canvas App</Toolbar>
       <ActivityBar></ActivityBar>
       <Canvas
