@@ -37,10 +37,12 @@ export default function App() {
     setDrawables([...drawables,point(synth.model)]);
     setMetrics({...metrics,a:(new Date()).getTime(),count:metrics.count + 1})
   };
+  const u=5;
+  const w=48;
   return (
     <>
     <Layout width={width} height={height}
-      margin='5'>
+      margin={5} thickness={48}>
       <Toolbar>Canvas App</Toolbar>
       <ActivityBar></ActivityBar>
       <Canvas
