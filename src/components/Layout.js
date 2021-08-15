@@ -1,4 +1,5 @@
 import React from 'react';
+import {Toolbar} from './components/'
 import './Layout.css';
 
 export const Layout = ({width,height,children,margin,thickness}) => {
@@ -8,6 +9,12 @@ export const Layout = ({width,height,children,margin,thickness}) => {
   const content = children[2];
   const status = children[3];
   const activitybar = children[1];
+  console.log({
+    toolbar:toolbar.type === Toolbar,
+    content,
+    status,
+    activitybar,
+  })
   const stlLayout = {
     width:`${width}px`,
     height:`${height}px`,
