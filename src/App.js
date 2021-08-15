@@ -28,7 +28,7 @@ export default function App() {
   const [drawables, setDrawables] = useState(iniState);
   const [metrics,setMetrics] = useState({count:drawables.length,avg:1});
   let [width, height] = useWindowSize();
-  width-=84;height-=168;
+  // width-=114;height-=188;
   const extras = [
     rectangle({x:0,y:0,width,height})
   ];
@@ -39,12 +39,12 @@ export default function App() {
   };
   return (
     <>
-    <Layout>
+    <Layout width={width} height={height}>
       <Toolbar>Canvas App</Toolbar>
       <ActivityBar></ActivityBar>
       <Canvas
-        width={width}
-        height={height}
+        width={width-114}
+        height={height-168}
         drawables={[...drawables,...extras]}
         onRenderEnd={() => {
           metrics.b = (new Date()).getTime();

@@ -1,24 +1,31 @@
 .app-layout{
   position:relative;
+  box-sizing: border-box;
 }
 .app-toolbar{
   position:absolute;
+  box-sizing: border-box;
   top:10px;
   left:10px;
   right:10px;
   max-height:64px;
+  min-height: 64px;
   border:1px solid #aaa;
 }
 .app-activitybar{
   position:absolute;
+  box-sizing: border-box;
   top:84px;
   left:10px;
   bottom:10px;
   max-width:64px;
+  min-width: 64px;
+  height:calc(100%-84px);
   border:1px solid #ccc;
 }
 .app-content{
   position:absolute;
+  box-sizing: border-box;
   top:84px;
   left:84px;
   bottom:84px;
@@ -27,9 +34,12 @@
 }
 .app-statusbar{
   position:absolute;
+  box-sizing: border-box;
   left:84px;
   right:10px;
+  top:calc(100%-74px);
   bottom:10px;
   max-height:64px;
+  min-height:64px;
   border:1px solid #afa;
 }
