@@ -1,16 +1,18 @@
 import React from 'react';
-import {Toolbar} from './components/'
+import {Toolbar} from './Toolbar';
+import {ActivityBar} from './ActivityBar';
+import {StatusBar} from './StatusBar';
 import './Layout.css';
 
 export const Layout = ({width,height,children,margin,thickness}) => {
   const u=margin||10;
   const w=thickness||64;
-  const toolbar = children[0];
-  const content = children[2];
-  const status = children[3];
-  const activitybar = children[1];
+  const toolbar = children.find(n => n.type === Toolbar);
+  const content = children.filter(n => n.type !== Toolbar && n.type !== StatusBar && n.type !== ActivityBar);
+  const status = children.find(n => n.type === StatusBar);
+  const activitybar = children.find(n => n.type === ActivityBar);
   console.log({
-    toolbar:toolbar.type === Toolbar,
+    toolbar,
     content,
     status,
     activitybar,
