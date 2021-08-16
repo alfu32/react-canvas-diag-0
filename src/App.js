@@ -50,6 +50,7 @@ export default function App() {
       margin={u} thickness={w}>
       <Toolbar>Canvas App</Toolbar>
       <ActivityBar></ActivityBar>
+      <ActivityPanel></ActivityPanel>
       <Canvas
         width={width-2*u-w-2}
         height={height-3*u-2*w-2}

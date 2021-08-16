@@ -45,6 +45,15 @@ export const Layout = ({width,height,children,margin,thickness}) => {
     maxHeight:`${height-2*u}px`,
     minHeight:`${height-2*u}px`,
   }
+  const stlActivityPanel = {
+    top:`${w+2*u}px`,
+    left:`${w+2*u}px`,
+    width:`${300}px`,
+    height:`${height-2*w-4*u}px`,
+    minWidth:`${300}px`,
+    maxWidth:`${300}px`,
+    minHeight:`${height-2*w-4*u}px`
+  };
   const stlContent = {
     top:`${w+2*u}px`,
     left:`${w+2*u}px`,
