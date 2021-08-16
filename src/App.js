@@ -15,7 +15,7 @@ const round= (v,n)=>{
 }
 const iniState = (w,h) =>
     new Array(1000).fill(0).map( (v,i,a) =>
-    point({x:Math.random()*w+10, y:Math.random()*h+10}),
+    point({x:Math.random()*1000+10, y:Math.random()*1000+10}),
   )
 function useWindowSize() {
   const [size, setSize] = useState([0, 0]);
