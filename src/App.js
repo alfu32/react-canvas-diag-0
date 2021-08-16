@@ -7,7 +7,11 @@ import { StatusBar } from './components/StatusBar';
 import { point } from './drawables/point';
 import { rectangle } from './drawables/rectangle';
 import './style.css';
-
+const round= (v,n)=>{
+  if(isNaN(v)) return NaN
+  if(v ===null) return 'null';
+  return new Number(v).toFixed(n);
+}
 const iniState = 
     new Array(1).fill(0).map( (v,i,a) =>
     point({x:Math.random()*100+10, y:Math.random()*100+20}),
@@ -56,7 +60,7 @@ export default function App() {
         } }
         onClick={addDrawable}
       />
-      <StatusBar><pre>{JSON.stringify(metrics,null,"")}</pre></StatusBar>
+      <StatusBar>{metrics.count} objs in {round(metrics.avg,2)} ms</StatusBar>
       
     </Layout>
     </>
