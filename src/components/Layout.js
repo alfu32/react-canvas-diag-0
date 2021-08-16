@@ -26,11 +26,11 @@ left->|     |            |                      |
 */
 
 
-export const Layout = ({width,height,children,margin,thickness}) => {
+export const Layout = ({width,height,children,margin,thickness,activityPanelWidth=0}) => {
   const u=margin||10;
   const w=thickness||64;
   const toolbar = children.find(n => n.type === Toolbar);
-  const content = children.filter(n => n.type !== Toolbar && n.type !== StatusBar && n.type !== ActivityBar);
+  const content = children.filter(n => n.type !== Toolbar && n.type !== StatusBar && n.type !== ActivityBar && n.type !== ActivityPanel);
   const status = children.find(n => n.type === StatusBar);
   const activitybar = children.find(n => n.type === ActivityBar);
   const activityPanel = children.find(n => n.type === ActivityPanel);
@@ -76,17 +76,17 @@ export const Layout = ({width,height,children,margin,thickness}) => {
   const stlActivityPanel = {
     top:`${w+2*u}px`,
     left:`${w+2*u}px`,
-    width:`${300}px`,
+    width:`${activityPanelWidth}px`,
     height:`${height-2*w-4*u}px`,
-    minWidth:`${300}px`,
-    maxWidth:`${300}px`,
+    minWidth:`${activityPanelWidth}px`,
+    maxWidth:`${activityPanelWidth}px`,
     minHeight:`${height-2*w-4*u}px`,
     maxHeight:`${height-2*w-4*u}px`,
   };
   const stlContent = {
     top:`${w+2*u}px`,
-    left:`${300+w+2*u}px`,
-    width:`${width-w-3*u-300}px`,
+    left:`${activityPanelWidth+w+2*u}px`,
+    width:`${width-w-3*u-activityPanelWidth}px`,
     height:`${height-2*w-4*u}px`,
     maxWidth:`${width-w-3*u}px`,
     minWidth:`${width-w-3*u}px`,
@@ -107,7 +107,7 @@ export const Layout = ({width,height,children,margin,thickness}) => {
     <div className="app-layout" style={stlLayout}>
       <div className="app-toolbar" style={stlToolbar}>{toolbar}</div>
       <div className="app-activitybar" style={stlActivityBar}>{activitybar}</div>
-      <div className="app-activitypanel" style={stlActivityPanel}>{activityPanel}</div>
+      {activityPanelWidth?<div className="app-activitypanel" style={stlActivityPanel}>{activityPanel}</div>:[]}
       <div className="app-content" style={stlContent}>{content}</div>
       <div className="app-statusbar" style={stlStatusBar}>{status}</div>
     </div>
