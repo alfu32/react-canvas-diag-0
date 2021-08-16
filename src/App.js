@@ -32,7 +32,7 @@ export default function App() {
   const [drawables, setDrawables] = useState(iniState);
   const [metrics,setMetrics] = useState({count:drawables.length,avg:1});
   let [width, height] = useWindowSize();
-  // width-=114;height-=188;
+  width-=20;height-=20;
   const u=5;
   const w=48;
   const extras = [
