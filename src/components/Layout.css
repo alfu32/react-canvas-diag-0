@@ -12,6 +12,11 @@
   box-sizing: border-box;
   border:1px solid #ccc;
 }
+.app-activitypanel{
+  position:absolute;
+  box-sizing: border-box;
+  border:1px solid #7bf;
+}
 .app-content{
   position:absolute;
   box-sizing: border-box;
