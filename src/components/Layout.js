@@ -4,7 +4,7 @@ import {ActivityBar} from './ActivityBar';
 import {StatusBar} from './StatusBar';
 import './Layout.css';
 
-/*
+/* GRID
       +-----+------------+-------top------------+
 left->|     |            |                      |
       |     |            |                      |
