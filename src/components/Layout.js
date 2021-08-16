@@ -4,6 +4,27 @@ import {ActivityBar} from './ActivityBar';
 import {StatusBar} from './StatusBar';
 import './Layout.css';
 
+/*
+      +-----+------------+-------top------------+
+left->|     |            |                      |
+      |     |            |                      |
+      +-----+------------+-------topContent-----+
+      |     |            |                      |
+      |     |<-actionLeft|                      |
+      |     |            |<-contentLeft         |
+      |     |            |                      |
+      |     |            |                      |
+      |     |            |                      |
+      |     |            |             right--->|
+      |     |            |                      |
+      +-----+------------+-------bottomContent--+
+      |     |            |                      |
+      |     |            |                      |
+      |     |            |                      |
+      +-----+------------+-------bottom---------+
+*/
+
+
 export const Layout = ({width,height,children,margin,thickness}) => {
   const u=margin||10;
   const w=thickness||64;
