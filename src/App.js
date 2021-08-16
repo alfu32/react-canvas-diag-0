@@ -1,6 +1,7 @@
 import React, { useState,useLayoutEffect } from 'react';
 import { Layout } from './components/Layout';
 import { ActivityBar} from './components/ActivityBar';
+import {ActivityPanel} from './components/ActivityPanel';
 import { Toolbar } from './components/Toolbar';
 import { Canvas } from './components/Canvas';
 import { StatusBar } from './components/StatusBar';
@@ -12,9 +13,9 @@ const round= (v,n)=>{
   if(v ===null) return 'null';
   return new Number(v).toFixed(n);
 }
-const iniState = 
-    new Array(1).fill(0).map( (v,i,a) =>
-    point({x:Math.random()*100+10, y:Math.random()*100+20}),
+const iniState = (w,h) =>
+    new Array(1000).fill(0).map( (v,i,a) =>
+    point({x:Math.random()*w+10, y:Math.random()*h+10}),
   )
 function useWindowSize() {
   const [size, setSize] = useState([0, 0]);
@@ -29,12 +30,12 @@ function useWindowSize() {
   return size;
 }
 export default function App() {
-  const [drawables, setDrawables] = useState(iniState);
-  const [metrics,setMetrics] = useState({count:drawables.length,avg:1});
-  let [width, height] = useWindowSize();
-  width-=20;height-=20;
+  let [width,height] = useWindowSize();
   const u=5;
-  const w=48;
+  const w=64;
+  width-=2*u;height-=2*u;
+  const [drawables, setDrawables] = useState(iniState(width,height));
+  const [metrics,setMetrics] = useState({count:drawables.length,avg:1});
   const extras = [
     rectangle({x:1,y:1,width:width-3*u-w-4,height:height-4*u-2*w-4})
   ];
@@ -60,7 +61,7 @@ export default function App() {
         } }
         onClick={addDrawable}
       />
-      <StatusBar>{metrics.count} objs in {round(metrics.avg,2)} ms</StatusBar>
+      <StatusBar>{metrics.count} objs in {round(metrics.delta,2)} ms, avg {round(metrics.avg,2)} ms</StatusBar>
       
     </Layout>
     </>
