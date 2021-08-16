@@ -36,6 +36,7 @@ export default function App() {
   width-=2*u;height-=2*u;
   const [drawables, setDrawables] = useState(iniState(width,height));
   const [metrics,setMetrics] = useState({count:drawables.length,avg:1});
+  const [apanelWidth,setApanelWidth] = useState(300);
   const extras = [
     rectangle({x:1,y:1,width:width-3*u-w-4,height:height-4*u-2*w-4})
   ];
@@ -44,11 +45,18 @@ export default function App() {
     setDrawables([...drawables,point(synth.model)]);
     setMetrics({...metrics,a:(new Date()).getTime(),count:metrics.count + 1})
   };
+  const toggleActivityPanel=()=>{
+
+  }
   return (
     <>
     <Layout width={width} height={height}
-      margin={u} thickness={w}>
-      <Toolbar>Canvas App</Toolbar>
+      margin={u} thickness={w}
+      >
+      <Toolbar>
+        Canvas App
+        <button onClick={toggleActivityPanel}>M</button>
+      </Toolbar>
       <ActivityBar></ActivityBar>
       <ActivityPanel></ActivityPanel>
       <Canvas
