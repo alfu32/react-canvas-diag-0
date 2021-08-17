@@ -36,9 +36,9 @@ export default function App() {
   width-=2*u;height-=2*u;
   const [drawables, setDrawables] = useState(iniState(width,height));
   const [metrics,setMetrics] = useState({count:drawables.length,avg:1});
-  const [apanelWidth,setApanelWidth] = useState(300);
+  const [activityPanelWidth,setActivityPanelWidth] = useState(300);
   const extras = [
-    rectangle({x:1,y:1,width:width-3*u-w-4,height:height-4*u-2*w-4})
+    rectangle({x:1,y:1,width:width-3*u-w- activityPanelWidth-4,height:height-4*u-2*w-4})
   ];
   const addDrawable = (ev,synth) => {
     console.log({ev,synth});
@@ -46,21 +46,26 @@ export default function App() {
     setMetrics({...metrics,a:(new Date()).getTime(),count:metrics.count + 1})
   };
   const toggleActivityPanel=()=>{
-
+    setActivityPanelWidth(
+      activityPanelWidth?0:300
+    )
   }
   return (
     <>
     <Layout width={width} height={height}
       margin={u} thickness={w}
-      >
+      activityPanelWidth={activityPanelWidth}>
       <Toolbar>
         Canvas App
-        <button onClick={toggleActivityPanel}>M</button>
       </Toolbar>
-      <ActivityBar></ActivityBar>
+      <ActivityBar>
+        <button className="layout-activity-panel--button"
+          onClick={toggleActivityPanel}
+        />
+      </ActivityBar>
       <ActivityPanel></ActivityPanel>
       <Canvas
-        width={width-2*u-w-2}
+        width={width-2*u-w-2- activityPanelWidth}
         height={height-3*u-2*w-2}
         drawables={[...drawables,...extras]}
         onRenderEnd={() => {
