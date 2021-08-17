@@ -1,4 +1,7 @@
 import React, { useState,useLayoutEffect } from 'react';
+import 'primereact/resources/themes/saga-blue/theme.css';
+import 'primereact/resources/primereact.min.css';
+import 'primeicons/primeicons.css';
 import { Layout } from './components/Layout';
 import { ActivityBar} from './components/ActivityBar';
 import {ActivityPanel} from './components/ActivityPanel';
@@ -60,7 +63,11 @@ export default function App() {
         Canvas App
       </Toolbar>
       <ActivityBar>
-        <ToggleButton onIcon="pi pi-angle-double-right" offIcon="pi pi-angle-double-left" checked={activityPanelWidth} onChange={toggleActivityPanel}
+        <ToggleButton
+        onLabel="" offLabel=""
+        onIcon="pi pi-angle-double-left" offIcon="pi pi-angle-double-right"
+        checked={activityPanelWidth}
+        onChange={toggleActivityPanel}
         />
       </ActivityBar>
       <ActivityPanel></ActivityPanel>
