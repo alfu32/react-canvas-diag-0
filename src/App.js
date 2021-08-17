@@ -68,6 +68,7 @@ export default function App() {
         onIcon="pi pi-angle-double-left" offIcon="pi pi-angle-double-right"
         checked={activityPanelWidth}
         onChange={toggleActivityPanel}
+        style={{minWidth:60,minHeight:60}}
         />
       </ActivityBar>
       <ActivityPanel></ActivityPanel>
