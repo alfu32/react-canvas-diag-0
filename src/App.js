@@ -34,7 +34,10 @@ function useWindowSize() {
   }, []);
   return size;
 }
-export default function App({extensions=[],children}) {
+const defaultExtension={id:"default",button:"ext",panel:"default extension activity"};
+export default function App({extensions=[defaultExtension],children}) {
+  let [currentExtensionId,setCurrentExtensionId] = useState("default");
+  let currentExtension = extensions.find(ex => ex.id = currentExtensionId) || defaultExtension;
   let [width,height] = useWindowSize();
   const u=5;
   const w=64;
@@ -67,7 +70,7 @@ export default function App({extensions=[],children}) {
         <Hamburger toggled={activityPanelWidth>0} toggle={toggleActivityPanel}
         size={32} distance='sm' color='#676767'
         style={{minWidth:60,minHeight:60,border:0,background:'#eee',color:'#555'}}/>
-        
+        {extensions.map(ex => ex.button||[])}
         {/*<ToggleButton
         onLabel="" offLabel=""
         onIcon="pi pi-angle-double-left" offIcon="pi pi-angle-double-right"
@@ -76,7 +79,7 @@ export default function App({extensions=[],children}) {
         style={{minWidth:60,minHeight:60,border:0,background:'#eee',color:'#555'}}
         />*/}
       </ActivityBar>
-      <ActivityPanel></ActivityPanel>
+      <ActivityPanel>{currentExtension.panel}</ActivityPanel>
       <Canvas
         width={width-2*u-w-2- activityPanelWidth}
         height={height-3*u-2*w-2}
