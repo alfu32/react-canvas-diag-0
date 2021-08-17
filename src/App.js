@@ -5,6 +5,7 @@ import {ActivityPanel} from './components/ActivityPanel';
 import { Toolbar } from './components/Toolbar';
 import { Canvas } from './components/Canvas';
 import { StatusBar } from './components/StatusBar';
+import { ToggleButton } from 'primereact/togglebutton';
 import { point } from './drawables/point';
 import { rectangle } from './drawables/rectangle';
 import './style.css';
@@ -59,8 +60,7 @@ export default function App() {
         Canvas App
       </Toolbar>
       <ActivityBar>
-        <button className="layout-activity-panel--button"
-          onClick={toggleActivityPanel}
+        <ToggleButton onIcon="pi pi-angle-double-right" offIcon="pi pi-angle-double-left" checked={activityPanelWidth} onChange={toggleActivityPanel}
         />
       </ActivityBar>
       <ActivityPanel></ActivityPanel>
