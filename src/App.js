@@ -64,7 +64,7 @@ export default function App() {
         Canvas App
       </Toolbar>
       <ActivityBar>
-        <Hamburger toggled={activityPanelWidth===0} toggle={toggleActivityPanel}
+        <Hamburger toggled={activityPanelWidth>0} toggle={toggleActivityPanel}
         size={32} distance='sm' color='#676767'
         style={{minWidth:60,minHeight:60,border:0,background:'#eee',color:'#555'}}/>
         {/*<ToggleButton
