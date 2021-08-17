@@ -34,7 +34,7 @@ function useWindowSize() {
   }, []);
   return size;
 }
-export default function App() {
+export default function App({extensions=[],children}) {
   let [width,height] = useWindowSize();
   const u=5;
   const w=64;
@@ -67,6 +67,7 @@ export default function App() {
         <Hamburger toggled={activityPanelWidth>0} toggle={toggleActivityPanel}
         size={32} distance='sm' color='#676767'
         style={{minWidth:60,minHeight:60,border:0,background:'#eee',color:'#555'}}/>
+        
         {/*<ToggleButton
         onLabel="" offLabel=""
         onIcon="pi pi-angle-double-left" offIcon="pi pi-angle-double-right"
