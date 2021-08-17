@@ -5,6 +5,7 @@ import 'primeicons/primeicons.css';
 import { Layout } from './components/Layout';
 import { ActivityBar} from './components/ActivityBar';
 import {ActivityPanel} from './components/ActivityPanel';
+import Hamburger from 'hamburger-react';
 import { Toolbar } from './components/Toolbar';
 import { Canvas } from './components/Canvas';
 import { StatusBar } from './components/StatusBar';
@@ -63,13 +64,16 @@ export default function App() {
         Canvas App
       </Toolbar>
       <ActivityBar>
-        <ToggleButton
+        <Hamburger toggled={activityPanelWidth===0} toggle={toggleActivityPanel}
+        size={32} distance='sm' color='#676767'
+        style={{minWidth:60,minHeight:60,border:0,background:'#eee',color:'#555'}}/>
+        {/*<ToggleButton
         onLabel="" offLabel=""
         onIcon="pi pi-angle-double-left" offIcon="pi pi-angle-double-right"
         checked={activityPanelWidth}
         onChange={toggleActivityPanel}
         style={{minWidth:60,minHeight:60,border:0,background:'#eee',color:'#555'}}
-        />
+        />*/}
       </ActivityBar>
       <ActivityPanel></ActivityPanel>
       <Canvas
