@@ -1,6 +1,6 @@
 import React from 'react';
 
-export function defaultExtension(hooks){
+export default function defaultExtension(hooks){
   return {
     id:'default',
     button: (props) =>{
